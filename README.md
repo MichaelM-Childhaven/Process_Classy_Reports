@@ -1,9 +1,9 @@
 # Process_Classy_Reports
-**SUMMARY: Takes raw Classy Payout Report exports (CSV files) and Transaction Report exports (CSV files) and combines them and formats the result into one useful, well formatted, time-saving file that you can then save as a normal Excel file. And the data is ready to be copy-pasted in Raiser's Edge or another fundraising database.**
+**SUMMARY: Takes two files -- a raw Classy Payouts Report export (a CSV file) and a Transactions Report export (a CSV file) -- and combines them and formats the result into one useful, well formatted, time-saving file that you can then save as a normal Excel file. And the data is ready to be copy-pasted into Raiser's Edge or another fundraising database of your choice.**
 
-This software is written in VBA for Excel. You could save this macro inside a macro-enabled Excel file, but it is recommended that you save it into your personal macro file, which is always available (PERSONAL.XLSB). For more information about creating your PERSONAL.XLSB file and importing macros, please consult the web. The VBA code is in a file called DEVO_MACROS.bas, which you can import into your personal macro file (your PERSONAL.XLSB file).
+This software is written in VBA for Excel. You could save this macro inside a macro-enabled Excel file, but it is recommended that you save it into your personal macro file, which is always available (PERSONAL.XLSB). For more information about creating your PERSONAL.XLSB file and importing macros, please consult the web. The VBA code is in a file called **CLASSY_MACROS.bas**, which you can import into your personal macro file (your PERSONAL.XLSB file).
 
-If you've never used Excel macros file before, you'll need to learn how to (1) enable the Developer tab in Excel, and then (2) use that Developer tab to import the DEVO_MACROS.bas file. Once you've done that, you can invoke this macro like any other, by pressing Alt-F8 and choosing the correct macro name. The name of the macro is PROCESS_CLASSY_REPORTS.
+If you've never used Excel macros file before, you'll need to learn how to (1) enable the Developer tab in Excel, and then (2) use that Developer tab to import the CLASSY_MACROS.bas file. Once you've done that, you can invoke this macro like any other, by pressing Alt-F8 and choosing the correct macro name. The name of the macro is **PROCESS_CLASSY_REPORTS**.
 
 The idea behind the macro is simply one of efficiency. Classy is an excellent platform for non-profits that provides a wealth of donor data. When a donor makes a gift (contribution), a transaction is recorded which can then be exported in a **Transaction Report** from Classy (what I call a **"Details Report"**). Secondly, groups of transactions are paid out in **Payout Reports**. The **PROCESS_CLASSY_REPORTS** macro will prompt you to select one Payout Report and one Details Report. The idea of course is that the Details Report contains transactions that are contained in your Payout Report. This normally entails that the date ranges for your Payout Report and your Details Report are roughly the same, with the Details Report usually having a slightly earlier date range than the Payout Report, because transactions are typically paid out 1-3 days after the transaction occurs.
 
@@ -40,7 +40,7 @@ Here's what the macro does:
 
 2. It nicely formats all of the data, including the dreaded "East Coast zipcodes" that begin with one or more leading zeroes. Note that the leading-zero problem is not a Classy problem, but rather an Excel problem: Excel looks at your CSV file and takes anything that **looks** like a number with leading zeroes and immediately removes those leading zeroes. My macro KNOWS that this should be a zipcode and converts leading-zero zipcodes to text fields with their leading zeroes preserved. The macro code works well with both USA and Canadian zip codes.
  
-3. It combines the Address 1 and Address 2 fields into just the Address 1 field. For most Raiser's Edge users, the "street address" portion is just a single line and a single field, so this is much more convenient for RE.
+3. It combines the **Billing Address** and **Billing Address 2** fields into just the Billing Address field. For most Raiser's Edge users, the "street address" portion is just a single line and a single field, so this is much more convenient for RE.
 
 4. It takes the TEXTUAL fields **Dedication Type, Dedication Name, Dedication Message and Donor's Comment** and cleans up the text and combines it into a single handy field that you can simply cut and paste into your RE Reference field. Not only that, but it also adds text that indicates whether it's a Stripe or PayPal transaction, and whether it's a one-time gift or a recurring gift. All in one convenient field that you can simply cut and paste into your RE Reference field.
 
@@ -50,9 +50,14 @@ Here's what the macro does:
 
 8. It adjust column widths and in general tries to lay everything out nicely for you.
 
-I hope that other non-profits find this tool useful!
+As mentioned earlier, the macro does the work of matching up detail transactions row to payout transaction rows. The payout report actually contains most of the data we want already, with the following exceptions: **Dedication Type, Donor Is Anonymous, Donor Phone Number, and Donor's Comment**. When the PROCESS_CLASSY_REPORTS macro finishes, it creates a file with a header row colored yellow _except for some orange-colored fields at the end_. Those orange-colored fields represent the data that was taken from the Details Report (from one of those four columns I just mentioned) and combined into this "new, enhanced" payout report. That means that **_if there was a match, the orange Reference field (and possibly other orange fields) will contain some data._** If the orange reference field for a given payout transaction contains no data, that means that no match for that transaction was found in your Details report. If on the other hand there were transactions in the Details report that didn't match any rows in the Payout report, then those transactions were simply ignored.
+  
+I hope that other non-profits find this tool useful! If you have any questions at all, please do not hesitate to ask me.
 
 Michael Matloff
+
 Development Systems Manager
+
 Childhaven
+
 (Childhaven.org)
