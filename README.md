@@ -51,8 +51,12 @@ Here's what the macro does:
 8. It adjust column widths and in general tries to lay everything out nicely for you.
 
 As mentioned earlier, the macro does the work of matching up detail transactions row to payout transaction rows. The payout report actually contains most of the data we want already, with the following exceptions: **Dedication Type, Donor Is Anonymous, Donor Phone Number, and Donor's Comment**. When the PROCESS_CLASSY_REPORTS macro finishes, it creates a file with a header row colored yellow _except for some orange-colored fields at the end_. Those orange-colored fields represent the data that was taken from the Details Report (from one of those four columns I just mentioned) and combined into this "new, enhanced" payout report. That means that **_if there was a match, the orange Reference field (and possibly other orange fields) will contain some data._** If the orange reference field for a given payout transaction contains no data, that means that no match for that transaction was found in your Details report. If on the other hand there were transactions in the Details report that didn't match any rows in the Payout report, then those transactions were simply ignored.
-  
-I hope that other non-profits find this tool useful! If you have any questions at all, please do not hesitate to ask me.
+
+#Bonus Macros
+
+There are two other small macros included in the DEVO_MACROS.bas file for your review and use. For more info about them, see the description field for the DEVO_MACROS.bas file. Basically there's one that just does a quick format of a header row in most any downloaded CSV file, and the other one "preps" your formatted Excel file to be saved as a plain CSV file, by deleting extraneous rows and columsn (so you don't end up with extra junk fields in your CSV file). Again, see the DEVO_MACROS.bas file description for more info.
+
+I truly hope that other non-profits find this tool useful! If you have any questions at all, please do not hesitate to ask me.
 
 <div>Michael Matloff<br>
 Development Systems Manager<br>
