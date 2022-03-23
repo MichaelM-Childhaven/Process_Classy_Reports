@@ -54,10 +54,7 @@ As mentioned earlier, the macro does the work of matching up detail transactions
   
 I hope that other non-profits find this tool useful! If you have any questions at all, please do not hesitate to ask me.
 
-Michael Matloff
-
-Development Systems Manager
-
-Childhaven
-
-(Childhaven.org)
+<div>Michael Matloff<br>
+Development Systems Manager<br>
+Childhaven<br>
+(Childhaven.org)</div>
