@@ -1,4 +1,4 @@
-# Process_Classy_Reports
+# Process_Classy_Reports v1.0
 **SUMMARY: Takes two files -- a raw Classy Payouts Report export (a CSV file) and a Transactions Report export (a CSV file) -- and combines them and formats the result into one useful, well formatted, time-saving file that you can then save as a normal Excel file. And the data is ready to be copy-pasted into Raiser's Edge or another fundraising database of your choice.**
 
 This software is written in VBA for Excel. You could save this macro inside a macro-enabled Excel file, but it is recommended that you save it into your personal macro file, which is always available (PERSONAL.XLSB). For more information about creating your PERSONAL.XLSB file and importing macros, please consult the web. The VBA code is in a file called **DEVO_MACROS.bas**, which you can import into your personal macro file (your PERSONAL.XLSB file).
